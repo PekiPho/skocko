@@ -8,11 +8,11 @@ export class RandomZnaci{
         for(let i=0;i<4;i++)
         {
             this.brojevi[i]=Math.floor(Math.random()*6);
-            console.log(this.brojevi[i]);
+            //console.log(this.brojevi[i]);
         }
     }
 
-    print(){
-        console.log(this.brojevi);
+    pokusaj(niz:number[]){
+        
     }
 }

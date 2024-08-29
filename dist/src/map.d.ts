@@ -4,6 +4,7 @@ export default class Game {
     constructor();
     generateMap(container: HTMLElement): void;
     dodaj(el: HTMLImageElement): void;
-    reset(): void;
     pogadjaj(): void;
+    oboji(niz: number[]): void;
+    reset(): void;
 }

@@ -1,5 +1,5 @@
 export declare class RandomZnaci {
     brojevi: number[];
     constructor();
-    print(): void;
+    pokusaj(niz: number[]): void;
 }

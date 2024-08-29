@@ -77,7 +77,7 @@ export default class Game{
         let Pogadjaj=document.createElement('button');
         Pogadjaj.classList.add('dugme');
         Pogadjaj.textContent="POGODI";
-        Pogadjaj.addEventListener("click",this.pogadjaj);
+        Pogadjaj.addEventListener("click",()=>{this.pogadjaj();});
         btnContainer.appendChild(Pogadjaj);
     
         let novaIgra=document.createElement('button');
@@ -94,8 +94,7 @@ export default class Game{
         let slika=el.firstChild;
 
         let trenRed=document.querySelector(`.redLevo.red${this.currRow}`).children;
-        console.log(this.currRow);
-        console.log(trenRed[2]);
+        //console.log(`.redLevo.red${this.currRow}`);
         for(let i=0;i<trenRed.length;i++){
             if(trenRed[i].getAttribute('src')=="")
             {
@@ -106,14 +105,48 @@ export default class Game{
         }
     }
 
+    pogadjaj():void{
+        let checker:boolean=false;
+        let niz:number[] = [];
+        let trenutniRed=document.querySelector(`.redLevo.red${this.currRow}`).children;
+        //console.log();
+        for(let i=0;i<trenutniRed.length;i++){
+            if(trenutniRed[i].getAttribute('src')=="")
+            {
+                checker=true;
+                niz=[];
+                break;
+            }
+            else{
+                niz.push(parseInt(trenutniRed[i].className.split(' ')[0]));
+            }
+        }
+        console.log(niz);
+        if(!checker)
+        {
+            if(this.kombinacija.pokusaj(niz))
+                alert("Pobeda!!!");
+            else{
+                this.oboji(niz);
+            }
+            this.currRow++;
+        }
+    }
+
+    oboji(niz:number[]){
+
+    }
+
     reset(){
 
     }
 
     
 
-    pogadjaj(){
-        this.kombinacija.print;
-    }
+    
 }
 
+/*da koristim hash mapu za pamcenje brojeva od 0-5 i onda prvi prolaz ako element iz
+naseg pogadjanja jednak elementu smanjujemo, i prvo prolazimo tako kroz niz,onda elementi koji nisu na mesto
+prodjemo da pitamo da li postoje u hash mapi da bi znali da postoji ali nije na mestu
+*/
