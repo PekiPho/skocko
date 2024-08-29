@@ -1,2 +1,5 @@
-export declare function pogadjaj(): void;
-export declare function reset(): void;
+export declare class RandomZnaci {
+    brojevi: number[];
+    constructor();
+    print(): void;
+}

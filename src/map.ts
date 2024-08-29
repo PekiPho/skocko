@@ -1,8 +1,12 @@
+import { RandomZnaci } from "./logika";
 
 export default class Game{
+    currRow: number;
+    kombinacija:any;
 
     constructor(){
-        let currRow:number =0;
+        this.currRow=0;
+        this.kombinacija=new RandomZnaci();
     }
 
     generateMap(container:HTMLElement){
@@ -12,17 +16,22 @@ export default class Game{
     
             let redLevo=document.createElement('div');
             redLevo.classList.add('redLevo');
-            redLevo.classList.add(`${i}`);
+            redLevo.classList.add(`red${i}`);
     
             let redDesno = document.createElement('div');
             redDesno.classList.add('redDesno');
     
             for(let j=0;j<4;j++){
                 
-                let polje=document.createElement('div');
-                polje.classList.add("polje");
-                polje.classList.add(`${i}`);
-                redLevo.appendChild(polje);
+                let poljeSlika=document.createElement('img');
+                //let polje=document.createElement('div');
+                poljeSlika.src="";
+                //poljeSlika.alt="";
+                //poljeSlika.onerror=function(){this.style.display='none';};
+                poljeSlika.classList.add("polje");
+                poljeSlika.classList.add(`polje${j}`);
+                //polje.appendChild(poljeSlika);
+                redLevo.appendChild(poljeSlika);
                 red.appendChild(redLevo);
     
                 
@@ -39,13 +48,14 @@ export default class Game{
         znakovi.classList.add("znakovi");
     
         for(let i=0;i<6;i++){
-            let znak=document.createElement('div');
-            znak.classList.add('znak');
-            znak.classList.add(`${i}`);
-            //znak.addEventListener("click",this.dodaj(znak:HTMLDivElement));
+            //let znak:HTMLDivElement=document.createElement('div');
+            
+            
     
             let image=document.createElement('img');
-    
+            image.classList.add('znak');
+            image.classList.add(`${i}`);
+
             switch(i){
                 case 0: image.src='../assets/skocko.png'; break;
                 case 1: image.src='../assets/tref.png'; break;
@@ -55,10 +65,10 @@ export default class Game{
                 case 5: image.src='../assets/zvezda.png'; break;
             }
     
-            znak.appendChild(image);
-            znakovi.appendChild(znak);
+            image.addEventListener('click',()=>{this.dodaj(image);});
+            znakovi.appendChild(image);
         }
-    
+        
         container.appendChild(znakovi);
     
         let btnContainer=document.createElement('div');
@@ -80,8 +90,20 @@ export default class Game{
     
     }
 
-    dodaj(el:HTMLDivElement){
-        
+    dodaj(el:HTMLImageElement):void{
+        let slika=el.firstChild;
+
+        let trenRed=document.querySelector(`.redLevo.red${this.currRow}`).children;
+        console.log(this.currRow);
+        console.log(trenRed[2]);
+        for(let i=0;i<trenRed.length;i++){
+            if(trenRed[i].getAttribute('src')=="")
+            {
+                trenRed[i].setAttribute('src',el.src);
+                trenRed[i].setAttribute('class',el.className.split(' ')[1]);
+                break;
+            }
+        }
     }
 
     reset(){
@@ -91,7 +113,7 @@ export default class Game{
     
 
     pogadjaj(){
-
+        this.kombinacija.print;
     }
 }
 

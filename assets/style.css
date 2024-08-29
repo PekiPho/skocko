@@ -11,6 +11,8 @@ body{
 img{
     width: 75px;
     height: 75px;
+    text-indent: -10000px;
+    /* mix-blend-mode: multiply; */
 }
 
 
@@ -30,6 +32,10 @@ img{
 
 .polje{
     background-color: #9735ff;
+    border-radius: 10px;
+}
+
+.polje>img{
     border-radius: 10px;
 }
 
@@ -76,3 +82,4 @@ img{
 .dugme:hover{
     filter: brightness(85%);
 }
+
