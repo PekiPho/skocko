@@ -8,6 +8,10 @@ body{
     flex-direction: column;
     gap:20px;
 }
+img{
+    width: 75px;
+    height: 75px;
+}
 
 
 /* .gameContainer{
@@ -19,18 +23,23 @@ body{
     flex-direction: column;
 } */
 
-.polje{
+.polje,.guess,.znak{
     width: 75px;
     height:75px;
+}
+
+.polje{
     background-color: #9735ff;
     border-radius: 10px;
 }
 
 .guess{
-    width: 75px;
-    height: 75px;
     background-color: darkgrey;
     border-radius: 50%;
+}
+
+.znak{
+    background-color: white;
 }
 
 .horizontalno{
@@ -39,14 +48,18 @@ body{
     gap:150px;
 }
 
-.redLevo,.redDesno,.btnContainer{
+.redLevo,.redDesno,.btnContainer,.znakovi{
     display: flex;
     flex-direction: row;
     gap:20px;
 }
 
+.znakovi{
+    margin-top: 30px;
+}
+
 .btnContainer{
-    margin-top: 50px;
+    margin-top: 10px;
     gap:80px;
 }
 
