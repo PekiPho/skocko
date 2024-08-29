@@ -7,6 +7,8 @@
 //     zvezda
 // }
 
+import {pogadjaj,reset} from './logika.ts';
+
 export function generateMap(container){
     for(let i=0;i<6;i++){
         let red=document.createElement("div");
@@ -33,10 +35,24 @@ export function generateMap(container){
             red.appendChild(redDesno);
             
         }
-        for(let j=0;j<4;j++){
-            
-        }
-
         container.appendChild(red);
     }
+
+    let btnContainer=document.createElement('div');
+    btnContainer.classList.add('btnContainer');
+
+    let Pogadjaj=document.createElement('button');
+    Pogadjaj.classList.add('dugme');
+    Pogadjaj.textContent="POGODI";
+    Pogadjaj.addEventListener("click",pogadjaj);
+    btnContainer.appendChild(Pogadjaj);
+
+    let novaIgra=document.createElement('button');
+    novaIgra.classList.add('dugme');
+    novaIgra.textContent="Nova Igra";
+    novaIgra.addEventListener("click",reset);
+    btnContainer.appendChild(novaIgra);
+
+    container.appendChild(btnContainer);
+
 }

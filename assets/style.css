@@ -9,6 +9,7 @@ body{
     gap:20px;
 }
 
+
 /* .gameContainer{
     width:60vw;
     height: 100vh;
@@ -38,8 +39,27 @@ body{
     gap:150px;
 }
 
-.redLevo,.redDesno{
+.redLevo,.redDesno,.btnContainer{
     display: flex;
     flex-direction: row;
     gap:20px;
+}
+
+.btnContainer{
+    margin-top: 50px;
+    gap:80px;
+}
+
+
+.dugme{
+    all:unset;
+    width:150px;
+    height:75px;
+    font-size: larger;
+    background-color: blue;
+    text-align: center;
+    border-radius: 10px;
+}
+.dugme:hover{
+    filter: brightness(85%);
 }
