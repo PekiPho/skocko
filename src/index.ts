@@ -1,5 +1,7 @@
-import {generateMap} from './map.ts';
+import Game from './map';
 
 let gameContainer=document.querySelector(".gameContainer");
 
-generateMap(document.body);
+let g= new Game();
+
+g.generateMap(document.body);
