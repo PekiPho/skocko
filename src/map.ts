@@ -133,8 +133,9 @@ export default class Game{
                 }
             else{
                 this.oboji(niz);
+                this.currRow++;
             }
-            this.currRow++;
+            
         }
     }
 
@@ -160,14 +161,23 @@ export default class Game{
     }
 
     reset(){
-        let znakoviPolja=document.querySelectorAll(`.redLevo>*`);
+        this.currRow=0;
+        this.kombinacija=new RandomZnaci();
         let i=0;
-        // znakoviPolja.forEach(element:HTMLImageElement => {
-        //     element.className="";
-        //     element.classList.add("polje");
-        //     element.classList.add(`polje${i%4}`);
-        //     element.src=
-        // });
+        let znakoviPolja=document.querySelectorAll(`.redLevo>*`);
+
+        znakoviPolja.forEach(element => {
+            element.className="";
+            element.classList.add("polje");
+            element.classList.add(`polje${i%4}`);
+            element.setAttribute("src","");
+        });
+
+        i=0;
+        let znakoviGuess=document.querySelectorAll(`.redDesno>*`);
+        znakoviGuess.forEach(element=>{
+            element.setAttribute('style',"background-color: gray;");
+        });
     }
 
     
