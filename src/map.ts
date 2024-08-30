@@ -20,6 +20,7 @@ export default class Game{
     
             let redDesno = document.createElement('div');
             redDesno.classList.add('redDesno');
+            redDesno.classList.add(`red${i}`);
     
             for(let j=0;j<4;j++){
                 
@@ -37,6 +38,7 @@ export default class Game{
                 
                 let guess = document.createElement('div');
                 guess.classList.add("guess");
+                guess.style.backgroundColor= "gray";
                 redDesno.appendChild(guess);
                 red.appendChild(redDesno);
                 
@@ -121,11 +123,14 @@ export default class Game{
                 niz.push(parseInt(trenutniRed[i].className.split(' ')[0]));
             }
         }
-        console.log(niz);
+        //console.log(niz);
         if(!checker)
         {
             if(this.kombinacija.pokusaj(niz))
-                alert("Pobeda!!!");
+                {
+                    this.oboji(niz);
+                    alert("Pobeda!!!");
+                }
             else{
                 this.oboji(niz);
             }
@@ -134,7 +139,24 @@ export default class Game{
     }
 
     oboji(niz:number[]){
+        let nizBoja:number[];
+        nizBoja= this.kombinacija.dajBoje(niz);
+        //console.log("kombinacija je " + this.kombinacija.brojevi);
+        //console.log(nizBoja);
 
+        let guessRed=document.querySelector(`.redDesno.red${this.currRow}`).children;
+        //console.log(guessRed);
+        let colorCounter=0;
+        for(let i=0;i<guessRed.length;i++){
+            if(guessRed[colorCounter].getAttribute('style')=="background-color: gray;" && nizBoja[0]>0){
+                guessRed[colorCounter++].setAttribute('style',"background-color: red;");
+                nizBoja[0]--;
+            }
+            else if(nizBoja[1]>0 && guessRed[colorCounter].getAttribute('style')=="background-color: gray;"){
+                guessRed[colorCounter++].setAttribute('style',"background-color: yellow;");
+                nizBoja[1]--;
+            }
+        }
     }
 
     reset(){
