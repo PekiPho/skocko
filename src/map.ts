@@ -85,7 +85,7 @@ export default class Game{
         let novaIgra=document.createElement('button');
         novaIgra.classList.add('dugme');
         novaIgra.textContent="Nova Igra";
-        novaIgra.addEventListener("click",this.reset);
+        novaIgra.addEventListener("click",()=>{this.reset();});
         btnContainer.appendChild(novaIgra);
     
         container.appendChild(btnContainer);
@@ -160,7 +160,14 @@ export default class Game{
     }
 
     reset(){
-
+        let znakoviPolja=document.querySelectorAll(`.redLevo>*`);
+        let i=0;
+        // znakoviPolja.forEach(element:HTMLImageElement => {
+        //     element.className="";
+        //     element.classList.add("polje");
+        //     element.classList.add(`polje${i%4}`);
+        //     element.src=
+        // });
     }
 
     
