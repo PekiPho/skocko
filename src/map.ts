@@ -7,7 +7,7 @@ export default class Game{
     constructor(){
         this.currRow=0;
         this.kombinacija=new RandomZnaci();
-        console.log(this.kombinacija.brojevi);
+        //console.log(this.kombinacija.brojevi);
     }
 
     generateMap(container:HTMLElement){
