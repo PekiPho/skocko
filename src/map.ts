@@ -7,6 +7,7 @@ export default class Game{
     constructor(){
         this.currRow=0;
         this.kombinacija=new RandomZnaci();
+        console.log(this.kombinacija.brojevi);
     }
 
     generateMap(container:HTMLElement){
@@ -30,7 +31,11 @@ export default class Game{
                 //poljeSlika.alt="";
                 //poljeSlika.onerror=function(){this.style.display='none';};
                 poljeSlika.classList.add("polje");
-                poljeSlika.classList.add(`polje${j}`);
+
+                //ovo
+                //poljeSlika.classList.add(`polje${j}`);
+
+                poljeSlika.addEventListener('click',()=>{this.obrisi(poljeSlika);});
                 //polje.appendChild(poljeSlika);
                 redLevo.appendChild(poljeSlika);
                 red.appendChild(redLevo);
@@ -130,6 +135,7 @@ export default class Game{
                 {
                     this.oboji(niz);
                     alert("Pobeda!!!");
+                    this.currRow=-1;
                 }
             else{
                 this.oboji(niz);
@@ -180,7 +186,15 @@ export default class Game{
         });
     }
 
-    
+    obrisi(el:HTMLImageElement){
+        let roditelj=el.parentElement;
+        if(roditelj.classList.contains(`red${this.currRow}`)){
+            el.className="";
+            el.classList.add("polje");
+            el.setAttribute("src","");
+        }
+        //console.log(el.parentElement);
+    }
 
     
 }

@@ -7,4 +7,5 @@ export default class Game {
     pogadjaj(): void;
     oboji(niz: number[]): void;
     reset(): void;
+    obrisi(el: HTMLImageElement): void;
 }
