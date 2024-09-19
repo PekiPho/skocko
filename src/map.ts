@@ -11,6 +11,9 @@ export default class Game{
     }
 
     generateMap(container:HTMLElement){
+
+        //this.generateTimer(container);
+
         for(let i=0;i<6;i++){
             let red=document.createElement("div");
             red.classList.add("horizontalno");
@@ -196,8 +199,42 @@ export default class Game{
         //console.log(el.parentElement);
     }
 
+
+    generateTimer(container:HTMLElement){
+        let drugiCont= document.createElement('div');
+        drugiCont.classList.add("drugiCont");
+        drugiCont.textContent="60";
+
+        container.appendChild(drugiCont);
+
+        for(let i=0;i<2;i++){
+            let beliDiv = document.createElement('div');
+            beliDiv.classList.add(`polukrug`);
+            beliDiv.classList.add("pkb");
+            let plaviDiv=document.createElement('div');
+            plaviDiv.classList.add(`polukrug`);
+            plaviDiv.classList.add("pkp");
+
+
+            plaviDiv.style.zIndex="5";
+            beliDiv.style.zIndex="5";
+
+            if(i==1){
+                beliDiv.style.transform="rotate(180deg)";
+                beliDiv.style.zIndex="3";
+                plaviDiv.style.transform="rotate(180deg)";
+                plaviDiv.style.zIndex="3";
+
+            }
+            drugiCont.appendChild(beliDiv);
+            drugiCont.appendChild(plaviDiv);
+        }
+        container.appendChild(drugiCont);
+    }
     
 }
+
+
 
 /*da koristim hash mapu za pamcenje brojeva od 0-5 i onda prvi prolaz ako element iz
 naseg pogadjanja jednak elementu smanjujemo, i prvo prolazimo tako kroz niz,onda elementi koji nisu na mesto

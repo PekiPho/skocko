@@ -8,4 +8,5 @@ export default class Game {
     oboji(niz: number[]): void;
     reset(): void;
     obrisi(el: HTMLImageElement): void;
+    generateTimer(container: HTMLElement): void;
 }

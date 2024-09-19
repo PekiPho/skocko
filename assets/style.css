@@ -12,7 +12,14 @@ img{
     width: 75px;
     height: 75px;
     text-indent: -10000px;
+    border-radius: 10px;
     /* mix-blend-mode: multiply; */
+}
+img:hover{
+    transform: scale(1.1);
+}
+.guess:hover,img:active{
+    transform: scale(0.95);
 }
 
 
@@ -84,6 +91,39 @@ img{
     filter: brightness(85%);
 }
 
+
+
+.polukrug{
+    width: 50px;
+    height: 100px;
+    border-radius: 100px 0 0 100px;
+    position: absolute;
+    top:1vh;
+    left:2svh;
+}
+.polukrug:nth-child(n+3){
+    left:7.7svh;
+}
+.pkb{
+    background-color: white;
+}
+.pkp{
+    background-color: #9735ff;
+}
+/* .drugiCont{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top:2vh;
+    left:4svh;
+    z-index: 10;
+    background: transparent;
+    font-size: xx-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
 @media only screen and (max-width:768px){
     *{
         margin:0;
@@ -102,13 +142,13 @@ img{
     .horizontalno{
         margin-left:5px;
         width: 100vw;
-        height: 10vh;
+        height: 10svh;
         gap:15px;
     }
     .redLevo{
         width:301px;
-        height:10vh;
-        gap:15px;
+        height:8svh;
+        gap:3svw;
         align-items: center;
     }
     .redDesno{
@@ -116,7 +156,7 @@ img{
         grid-template-columns: 50% 50%;
         align-items: center;
         width: 25vw;
-        height: 10vh;
+        height: 8vh;
         gap:0px;
        
     }
@@ -124,19 +164,20 @@ img{
         height:25px;
         width:25px;
     }
-    img{
-        width:64px;
-    }
+    /* img{
+        width: 15svw;
+        height: 8svh;
+    } */
     
     .znakovi{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        height: 20%;
+        height: 20svh;
     }
     .btnContainer{
         
         bottom: 0;
-        height: 20%;
+        height: 20svh;
         width: 100vw;
         gap:0px;
     }
@@ -149,6 +190,11 @@ img{
     }
     .dugme:nth-child(2){
         background-color: red;
+    }
+
+    img,.polje,.znak{
+        width: 15svw;
+        height: 8svh;
     }
 }
 
