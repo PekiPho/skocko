@@ -55,7 +55,7 @@ export default class Game{
         }
 
         let redLevo=document.createElement('div');
-        redLevo.classList.add('redLevo');
+        redLevo.classList.add('levred');
         for(let i=0;i<4;i++){
             let pobedaPolje=document.createElement('img');
             pobedaPolje.src="";
@@ -156,7 +156,7 @@ export default class Game{
                 this.currRow++;
                 if(this.currRow>5)
                     this.prikaziKombinaciju();
-                
+                console.log(this.currRow);
             }
             
         }
@@ -188,12 +188,20 @@ export default class Game{
         this.kombinacija=new RandomZnaci();
         let i=0;
         let znakoviPolja=document.querySelectorAll(`.redLevo>*`);
+        let pobedaPolja=document.querySelectorAll(".pobeda");
 
         znakoviPolja.forEach(element => {
             element.className="";
             element.classList.add("polje");
             element.classList.add(`polje${i%4}`);
             element.setAttribute("src","");
+        });
+
+        pobedaPolja.forEach(el=>{
+            el.className="";
+            el.classList.add("polje");
+            el.classList.add("pobeda");
+            el.setAttribute("src","");
         });
 
         i=0;

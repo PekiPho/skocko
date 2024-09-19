@@ -63,7 +63,7 @@ img:hover{
     gap:150px;
 }
 
-.redLevo,.redDesno,.btnContainer,.znakovi{
+.redLevo,.levred,.redDesno,.btnContainer,.znakovi{
     display: flex;
     flex-direction: row;
     gap:20px;
