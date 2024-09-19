@@ -1,6 +1,6 @@
 *{
     background-color: #97d5ff;
-    touch-action: none;
+    touch-action: pan-x pan-y;
 }
 body{
     display: flex;
@@ -135,6 +135,7 @@ img:hover{
         padding:0;
     }
     body{
+        touch-action: pan-x pan-y;
         margin-top:10px;
         height: 100vh;
         width: 100vw;
