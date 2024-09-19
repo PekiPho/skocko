@@ -89,6 +89,10 @@ img:hover{
 }
 .dugme:hover{
     filter: brightness(85%);
+    transform: scale(1.05);
+}
+.dugme:active{
+    transform: scale(0.95);
 }
 
 
