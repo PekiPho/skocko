@@ -1,6 +1,5 @@
 *{
     background-color: #97d5ff;
-    touch-action: pan-x pan-y;
 }
 body{
     display: flex;
@@ -8,6 +7,7 @@ body{
     align-items: center;
     flex-direction: column;
     gap:20px;
+    touch-action: manipulation;
 }
 img{
     text-indent: -10000px;
@@ -135,7 +135,6 @@ img:hover{
         padding:0;
     }
     body{
-        touch-action: pan-x pan-y;
         margin-top:10px;
         height: 100vh;
         width: 100vw;
