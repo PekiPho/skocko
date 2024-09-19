@@ -1,5 +1,6 @@
 *{
     background-color: #97d5ff;
+    touch-action: none;
 }
 body{
     display: flex;
