@@ -53,6 +53,17 @@ export default class Game{
             }
             container.appendChild(red);
         }
+
+        let redLevo=document.createElement('div');
+        redLevo.classList.add('redLevo');
+        for(let i=0;i<4;i++){
+            let pobedaPolje=document.createElement('img');
+            pobedaPolje.src="";
+            pobedaPolje.classList.add("polje");
+            pobedaPolje.classList.add("pobeda");
+            redLevo.appendChild(pobedaPolje);
+        }
+        container.appendChild(redLevo);
     
         let znakovi=document.createElement('div');
         znakovi.classList.add("znakovi");
@@ -137,12 +148,15 @@ export default class Game{
             if(this.kombinacija.pokusaj(niz))
                 {
                     this.oboji(niz);
-                    alert("Pobeda!!!");
+                    this.prikaziKombinaciju();
                     this.currRow=-1;
                 }
             else{
                 this.oboji(niz);
                 this.currRow++;
+                if(this.currRow>5)
+                    this.prikaziKombinaciju();
+                
             }
             
         }
@@ -199,6 +213,21 @@ export default class Game{
         //console.log(el.parentElement);
     }
 
+    prikaziKombinaciju(){
+        let niz:number[]=this.kombinacija.brojevi;
+        let pobednaPolja=document.querySelectorAll('.pobeda');
+        pobednaPolja.forEach((polje:HTMLImageElement,index)=>{
+            switch(niz[index]){
+                    case 0: polje.src='../assets/skocko.png'; break;
+                    case 1: polje.src='../assets/tref.png'; break;
+                    case 2: polje.src='../assets/pik.png'; break;
+                    case 3: polje.src='../assets/herc.png'; break;
+                    case 4: polje.src='../assets/karo.png'; break;
+                    case 5: polje.src='../assets/zvezda.png'; break;
+            }
+        });
+    }
+
 
     generateTimer(container:HTMLElement){
         let drugiCont= document.createElement('div');
@@ -240,3 +269,6 @@ export default class Game{
 naseg pogadjanja jednak elementu smanjujemo, i prvo prolazimo tako kroz niz,onda elementi koji nisu na mesto
 prodjemo da pitamo da li postoje u hash mapi da bi znali da postoji ali nije na mestu
 */
+
+/* treba mi da dodam red da prikazuje tacnu kombinaciju, znaci trebam da proverim i ako
+je tacno prikazujem i ako je broj redova veci od 5 onda prikazujem svakako*/

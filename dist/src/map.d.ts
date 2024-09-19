@@ -8,5 +8,6 @@ export default class Game {
     oboji(niz: number[]): void;
     reset(): void;
     obrisi(el: HTMLImageElement): void;
+    prikaziKombinaciju(): void;
     generateTimer(container: HTMLElement): void;
 }
